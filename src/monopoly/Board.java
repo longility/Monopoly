@@ -7,13 +7,16 @@ public class Board {
 	
 	public Board(){
 		for(int i = 0; i < 40; i++){
-			if(i==38)
-				boardList.add(new LuxuryTax(-75));
-			boardList.add(new NullSpace());
+			if(i==0)
+				boardList.add(new GoSpace(200));
+			else if(i==38)
+				boardList.add(new LuxuryTaxSpace(-75));
+			else boardList.add(new NullSpace());
 		}
 	}
 	
 	public iSpace getSpace(int i){
 		return boardList.get(i);
 	}
+	
 }

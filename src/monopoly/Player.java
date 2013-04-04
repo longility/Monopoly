@@ -6,6 +6,7 @@ public class Player extends Observable{
 	private int currentRoll = 0;
 	private int position = 0;
 	private int moneyAmt = 1500; 
+	private boolean passGo = false;
 	private String name;
 	
 	public Player(String s, Observer o){
@@ -26,12 +27,25 @@ public class Player extends Observable{
 	}
 	
 	private void move(){
+		passGo = false;
 		position += currentRoll;
-		position %= 40;
+		if(position >= 40){
+			position %= 40;
+			if(position!=0) 
+				passGo = true;
+		}
 	}
 	
 	public void setMoney(int m){
 		moneyAmt += m;
+	}
+	
+	public boolean getPassGo(){
+		return passGo;
+	}
+	
+	public void resetPassGo(){
+		passGo = false;
 	}
 	
 	public int getRoll(){

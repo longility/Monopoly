@@ -1,12 +1,12 @@
 package monopoly;
 
-public class NullSpace implements iSpace {
+public class NullSpace extends iSpace {
 
 	public NullSpace(){
 		
 	}
 	
-	public void applyAction(Player p){
+	public void action(Player p){
 		
 	}
 	
