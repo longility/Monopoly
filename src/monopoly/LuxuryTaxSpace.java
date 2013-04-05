@@ -1,6 +1,6 @@
 package monopoly;
 
-public class LuxuryTaxSpace extends iSpace{
+public class LuxuryTaxSpace implements SpaceInterface{
 
 	int taxAmount;
 	
@@ -8,8 +8,12 @@ public class LuxuryTaxSpace extends iSpace{
 		taxAmount = tax;
 	}
 	
-	public void action(Player p){
-		p.setMoney(taxAmount);
+	public void landOnAction(Player p){
+		p.changeMoney(taxAmount);
+	}
+	
+	public void passOverAction(Player p){
+		
 	}
 	
 }

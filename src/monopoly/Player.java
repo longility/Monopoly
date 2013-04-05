@@ -6,7 +6,6 @@ public class Player extends Observable{
 	private int currentRoll = 0;
 	private int position = 0;
 	private int moneyAmt = 1500; 
-	private boolean passGo = false;
 	private String name;
 	
 	public Player(String s, Observer o){
@@ -23,29 +22,26 @@ public class Player extends Observable{
 		Random numGen = new Random();
 		currentRoll = numGen.nextInt(6) + 1;
 		currentRoll += numGen.nextInt(6) + 1;
-		move();
 	}
 	
-	private void move(){
-		passGo = false;
-		position += currentRoll;
-		if(position >= 40){
-			position %= 40;
-			if(position!=0) 
-				passGo = true;
+	public ArrayList<Integer> move(){
+		ArrayList<Integer> passedSpaces = new ArrayList<Integer>();
+		for(int i = 0; i < getRoll(); i++){
+			moveOneSpace();
+			passedSpaces.add(position);
+		}
+		return passedSpaces;
+	}
+	
+	public void moveOneSpace(){
+		position += 1;
+		if(position == 40){
+			position = 0;
 		}
 	}
 	
-	public void setMoney(int m){
+	public void changeMoney(int m){
 		moneyAmt += m;
-	}
-	
-	public boolean getPassGo(){
-		return passGo;
-	}
-	
-	public void resetPassGo(){
-		passGo = false;
 	}
 	
 	public int getRoll(){

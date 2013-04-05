@@ -12,9 +12,14 @@ public class Game {
 	
 	public void takeTurn(){
 		for(Player player : players){
+			SpaceInterface space;
 			player.roll();
-			iSpace space = board.getSpace(player.getPosition());
-			space.applyAction(player);
+			for(int index : player.move()){
+				space = board.getSpace(index);
+				space.passOverAction(player);
+			}
+			space = board.getSpace(player.getPosition());
+			space.landOnAction(player);
 			player.playerChanged();
 		}
 	}

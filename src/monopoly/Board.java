@@ -3,7 +3,7 @@ package monopoly;
 import java.util.*;
 
 public class Board {
-	private ArrayList<iSpace> boardList = new ArrayList<iSpace>();
+	private ArrayList<SpaceInterface> boardList = new ArrayList<SpaceInterface>();
 	
 	public Board(){
 		for(int i = 0; i < 40; i++){
@@ -15,7 +15,7 @@ public class Board {
 		}
 	}
 	
-	public iSpace getSpace(int i){
+	public SpaceInterface getSpace(int i){
 		return boardList.get(i);
 	}
 	
