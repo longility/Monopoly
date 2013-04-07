@@ -1,9 +1,10 @@
 package monopoly;
 
 public class NullSpace implements SpaceInterface {
-
-	public NullSpace(){
-		
+	private String spaceName;
+	
+	public NullSpace(String name){
+		spaceName = name;
 	}
 	
 	public void landOnAction(Player p){
@@ -14,4 +15,7 @@ public class NullSpace implements SpaceInterface {
 		
 	}
 	
+	public String getName(){
+		return spaceName;
+	}
 }

@@ -12,16 +12,14 @@ public class Game {
 	
 	public void takeTurn(){
 		for(Player player : players){
-			SpaceInterface space;
 			player.roll();
-			for(int index : player.move()){
-				space = board.getSpace(index);
-				space.passOverAction(player);
-			}
-			space = board.getSpace(player.getPosition());
-			space.landOnAction(player);
+			player.move(board);
 			player.playerChanged();
 		}
+	}
+	
+	public Board getBoard(){
+		return board;
 	}
 	
 	public void addPlayer(Player p){
@@ -34,10 +32,10 @@ public class Game {
 		PlayerDisplay display = new PlayerDisplay();
 		
 		
-		game.addPlayer(new Player("Tom", display));
-		game.addPlayer(new Player("Ally", display));
-		game.addPlayer(new Player("Paul", display));
-		game.addPlayer(new Player("Amy", display));
+		game.addPlayer(new Player("Tom", game.getBoard().getSpace(0) , display));
+		game.addPlayer(new Player("Ally", game.getBoard().getSpace(0), display));
+		game.addPlayer(new Player("Paul", game.getBoard().getSpace(0), display));
+		game.addPlayer(new Player("Amy", game.getBoard().getSpace(0), display));
 		
 		for(int i = 0; i < 10; i++){
 			game.takeTurn();

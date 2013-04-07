@@ -7,4 +7,6 @@ public interface SpaceInterface {
 
 	public void passOverAction(Player p);
 	
+	public String getName();
+	
 }

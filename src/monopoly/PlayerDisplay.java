@@ -5,7 +5,7 @@ import java.util.*;
 public class PlayerDisplay implements Observer{
 	Observable observable;
 	private int roll; 
-	private int position;
+	private SpaceInterface space;
 	private int moneyAmt;
 	private String name; 
 	
@@ -13,7 +13,7 @@ public class PlayerDisplay implements Observer{
 		if(o instanceof Player){
 			Player player = (Player) o;
 			this.roll = player.getRoll();
-			this.position = player.getPosition();
+			this.space = player.getCurrentSpace();
 			this.name = player.getName();
 			this.moneyAmt = player.getMoney();
 			display();
@@ -21,6 +21,6 @@ public class PlayerDisplay implements Observer{
 	}
 	
 	public void display(){
-		System.out.println(name + " has rolled a " + roll + " and is on space # " + position + " and has the balance " + moneyAmt);
+		System.out.println(name + " has rolled a " + roll + " and is on " + space.getName() + " and has the balance " + moneyAmt);
 	}
 }
