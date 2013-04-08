@@ -32,7 +32,7 @@ public class Game {
 		PlayerDisplay display = new PlayerDisplay();
 		
 		
-		game.addPlayer(new Player("Tom", game.getBoard().getSpace(0) , display));
+		game.addPlayer(new Player("Tom", game.getBoard().getSpace(0), display));
 		game.addPlayer(new Player("Ally", game.getBoard().getSpace(0), display));
 		game.addPlayer(new Player("Paul", game.getBoard().getSpace(0), display));
 		game.addPlayer(new Player("Amy", game.getBoard().getSpace(0), display));
