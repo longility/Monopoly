@@ -1,1 +1,5 @@
-*.class
+/bin
+.DS_Store
+.dropbox
+Icon
+.DS_Store
