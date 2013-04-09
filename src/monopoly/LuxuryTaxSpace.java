@@ -1,12 +1,11 @@
 package monopoly;
 
-public class LuxuryTaxSpace implements SpaceInterface{
+public class LuxuryTaxSpace extends AbstractSpace{
 	private int taxAmount;
-	private String spaceName;
-	
-	public LuxuryTaxSpace(String name, int tax){
+
+	public LuxuryTaxSpace(String name, AbstractSpace next, int tax){
+		super(name,next);
 		taxAmount = tax;
-		spaceName = name;
 	}
 	
 	public void landOnAction(Player p){
@@ -15,10 +14,5 @@ public class LuxuryTaxSpace implements SpaceInterface{
 	
 	public void passOverAction(Player p){
 		
-	}
-	
-	
-	public String getName(){
-		return spaceName;
 	}
 }

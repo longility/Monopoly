@@ -13,7 +13,7 @@ public class Game {
 	public void takeTurn(){
 		for(Player player : players){
 			player.roll();
-			player.move(board);
+			player.move();
 			player.playerChanged();
 		}
 	}
@@ -42,5 +42,4 @@ public class Game {
 			System.out.println();
 		}
 	}
-
 }
