@@ -3,9 +3,10 @@ package monopoly;
 import java.util.*;
 
 public class Player extends Observable{
-	private int currentRoll = 0;
 	private AbstractSpace currentSpace;
 	private int moneyAmt = 1500; 
+	private int currentRoll = 0;
+	private int netWorth = 1500;
 	private String name;
 	
 	public Player(String s, AbstractSpace startSpace, Observer o){
@@ -14,36 +15,45 @@ public class Player extends Observable{
 		currentSpace = startSpace;
 	}
 	
-	public void playerChanged(){
+	private void playerChanged(){
 		setChanged();
 		notifyObservers();
 	}
 	
-	public void roll(){
+	private void roll(){
 		Random numGen = new Random();
-		currentRoll = numGen.nextInt(6) + 1;
-		currentRoll += numGen.nextInt(6) + 1;
+		currentRoll = numGen.nextInt(6) + 1 + 
+					  numGen.nextInt(6) + 1;
 	}
 	
-	public void move(){		
-		for(int i = currentRoll; i > 0; i--)
-			moveOneSpace(i);
+	private void move(int spacesToMove){	
+		while(spacesToMove > 0){
+			currentSpace = currentSpace.getNextSpace();
+			if(spacesToMove == 1)
+				currentSpace.landOnAction(this);
+			else
+				currentSpace.passOverAction(this);
+			spacesToMove--;
+		}
 	}
 	
-	public AbstractSpace getCurrentSpace() {
+	public AbstractSpace getCurrentSpace(){
 		return currentSpace;
-	}
-
-	public void moveOneSpace(int i){
-		currentSpace = currentSpace.getNextSpace();
-		if(i==1)
-			currentSpace.landOnAction(this);
-		else
-			currentSpace.passOverAction(this);	
 	}
 	
 	public void changeMoney(int m){
 		moneyAmt += m;
+		changeNetWorth();
+	}
+	
+	public void changeNetWorth(){
+		netWorth = moneyAmt;
+	}
+	
+	public void takeTurn(){
+		roll();
+		move(getRoll());
+		playerChanged();
 	}
 	
 	public int getRoll(){
@@ -56,6 +66,10 @@ public class Player extends Observable{
 	
 	public int getMoney(){
 		return moneyAmt;
+	}
+	
+	public int getNetWorth(){
+		return netWorth;
 	}
 	
 	public String toString(){

@@ -9,7 +9,7 @@ public class LuxuryTaxSpace extends AbstractSpace{
 	}
 	
 	public void landOnAction(Player p){
-		p.changeMoney(taxAmount);
+		p.changeMoney(-taxAmount);
 	}
 	
 	public void passOverAction(Player p){

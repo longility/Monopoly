@@ -4,18 +4,16 @@ import java.util.*;
 public class Game {
 	ArrayList<Player> players; 
 	Board board; 
+	PlayerDisplay display = new PlayerDisplay();
 	
 	public Game(){
 		players = new ArrayList<Player>();
 		board = new Board();
 	}
 	
-	public void takeTurn(){
-		for(Player player : players){
-			player.roll();
-			player.move();
-			player.playerChanged();
-		}
+	public void roundOfTurns(){
+		for(Player player : players)
+			player.takeTurn();
 	}
 	
 	public Board getBoard(){
@@ -26,19 +24,16 @@ public class Game {
 		players.add(p);
 	}
 	
-
-	public static void main(String[] args) {
-		Game game = new Game();
-		PlayerDisplay display = new PlayerDisplay();
-		
-		
-		game.addPlayer(new Player("Tom", game.getBoard().getSpace(0), display));
-		game.addPlayer(new Player("Ally", game.getBoard().getSpace(0), display));
-		game.addPlayer(new Player("Paul", game.getBoard().getSpace(0), display));
-		game.addPlayer(new Player("Amy", game.getBoard().getSpace(0), display));
-		
+	public void createPlayers(){
+		addPlayer(new Player("Tom",getBoard().getSpace(0), display));
+		addPlayer(new Player("Ally", getBoard().getSpace(0), display));
+		addPlayer(new Player("Paul", getBoard().getSpace(0), display));
+		addPlayer(new Player("Amy", getBoard().getSpace(0), display));
+	}
+	
+	public void play(){
 		for(int i = 0; i < 10; i++){
-			game.takeTurn();
+			roundOfTurns();
 			System.out.println();
 		}
 	}
