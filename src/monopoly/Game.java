@@ -20,15 +20,8 @@ public class Game {
 		return board;
 	}
 	
-	public void addPlayer(Player p){
-		players.add(p);
-	}
-	
-	public void createPlayers(){
-		addPlayer(new Player("Tom",getBoard().getSpace(0), display));
-		addPlayer(new Player("Ally", getBoard().getSpace(0), display));
-		addPlayer(new Player("Paul", getBoard().getSpace(0), display));
-		addPlayer(new Player("Amy", getBoard().getSpace(0), display));
+	public void addPlayer(String playerName){
+		players.add(new Player(playerName, getBoard().getSpace(0), display));
 	}
 	
 	public void play(){
