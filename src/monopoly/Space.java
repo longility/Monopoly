@@ -1,9 +1,9 @@
 package monopoly;
 
 public interface Space {
-	void landOnAction(Player p);
+	void landOnAction(SpacePlayerClient p);
 
-	void passOverAction(Player p);
+	void passOverAction(SpacePlayerClient p);
 	
 	String getName();
 	

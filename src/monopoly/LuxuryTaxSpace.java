@@ -8,7 +8,7 @@ public class LuxuryTaxSpace extends AbstractSpace{
 	}
 	
 	@Override
-	public void landOnAction(Player p){
+	public void landOnAction(SpacePlayerClient p){
 		p.debitMoney(taxAmount);
 	}
 }
