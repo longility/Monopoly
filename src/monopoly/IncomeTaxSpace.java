@@ -10,6 +10,7 @@ public class IncomeTaxSpace extends AbstractSpace {
 		percentTax = percent;
 	}
 	
+	@Override
 	public void landOnAction(Player p){
 		int percentage = (int)(p.getNetWorth() * percentTax);
 		System.out.println(percentage);
@@ -17,9 +18,5 @@ public class IncomeTaxSpace extends AbstractSpace {
 			p.changeMoney(-percentage);
 		else
 			p.changeMoney(-flatTax);
-	}
-	
-	public void passOverAction(Player p){
-	
 	}
 }

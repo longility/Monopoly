@@ -9,6 +9,14 @@ abstract class AbstractSpace implements Space {
 		nextSpace = next;
 	}
 	
+	public void landOnAction(Player p) {
+		//Default implementation is to do nothing.
+	}
+
+	public void passOverAction(Player p) {
+		//Default implementation is to do nothing.
+	}
+	
 	public String getName(){
 		return spaceName;
 	}

@@ -8,10 +8,12 @@ public class GoSpace extends AbstractSpace{
 		goAmount = goAmt; 
 	}
 	
+	@Override
 	public void landOnAction(Player p){
 		p.changeMoney(goAmount);
 	}
 	
+	@Override
 	public void passOverAction(Player p){
 		p.changeMoney(goAmount);
 	}

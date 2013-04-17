@@ -8,11 +8,8 @@ public class LuxuryTaxSpace extends AbstractSpace{
 		taxAmount = tax;
 	}
 	
+	@Override
 	public void landOnAction(Player p){
 		p.changeMoney(-taxAmount);
-	}
-	
-	public void passOverAction(Player p){
-		
 	}
 }
