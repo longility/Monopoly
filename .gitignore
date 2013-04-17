@@ -3,3 +3,5 @@
 .dropbox
 Icon
 .DS_Store
+.classpath
+.project
