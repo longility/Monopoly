@@ -3,8 +3,8 @@ package monopoly;
 public class GoSpace extends AbstractSpace{
 	private int goAmount;
 	
-	public GoSpace(String name, Space next, int goAmt){
-		super(name,next);
+	public GoSpace(String name, int goAmt){
+		super(name);
 		goAmount = goAmt; 
 	}
 	

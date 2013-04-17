@@ -4,8 +4,8 @@ public class IncomeTaxSpace extends AbstractSpace {
  	private int flatTax = 0;
  	private double percentTax = 0;
  	
-	public IncomeTaxSpace(String name, Space next, int tax, double percent){
-		super(name,next); 
+	public IncomeTaxSpace(String name, int tax, double percent){
+		super(name); 
 		flatTax = tax;
 		percentTax = percent;
 	}

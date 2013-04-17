@@ -3,31 +3,36 @@ package monopoly;
 import java.util.*;
 
 public class Board{
-	private ArrayList<Space> boardList = new ArrayList<Space>();
+	private ArrayList<Space> spaces = new ArrayList<Space>();
 	Space nextSpace;
 	public Board(){
-		for(int i = 0; i < 40; i++){
-			if(i==0)
-				nextSpace = null;
-			else
-				nextSpace = boardList.get(0);
-
-			if(i==39)
-				boardList.add(0, new GoSpace("Go Space",nextSpace,200));
-			else if(i==36)
-				boardList.add(0,new IncomeTaxSpace("Income Tax Space",nextSpace,200,.1));
-			else if(i==2)
-				boardList.add(0, new LuxuryTaxSpace("Luxury Tax Space",nextSpace,75));
-			else 
-				boardList.add(0, new NullSpace("Null Space",nextSpace));
-		}
-		//make list circular 
-		Space lastSpace = boardList.get(boardList.size() - 1);
-		Space firstSpace = boardList.get(0);
-		lastSpace.setNextSpace(firstSpace);
+		createSpaces();
+		linkSpaces();
 	}
 	
 	public Space getStartingSpace() {
-		return boardList.get(0);
+		return spaces.get(0);
+	}
+	
+	private void createSpaces() {
+		spaces.add(new GoSpace("Go Space",200));
+		spaces.add(createNullSpace());
+		spaces.add(new IncomeTaxSpace("Income Tax Space",200,.1));
+		for(int i=3; i<38; i++)
+			spaces.add(createNullSpace());
+		spaces.add(0, new LuxuryTaxSpace("Luxury Tax Space",75));
+		spaces.add(createNullSpace());
+	}
+	
+	private Space createNullSpace() {
+		return new NullSpace("Null Space");
+	}
+	
+	private void linkSpaces() {
+		Space previousSpace = spaces.get(spaces.size()-1);
+		for (Space space : spaces) {
+			previousSpace.setNextSpace(space);
+			previousSpace = space;
+		}
 	}
 }

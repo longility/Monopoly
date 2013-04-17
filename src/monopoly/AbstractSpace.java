@@ -4,9 +4,8 @@ abstract class AbstractSpace implements Space {
 	protected String spaceName;
 	protected Space nextSpace;
 	
-	public AbstractSpace(String name, Space next){
+	public AbstractSpace(String name){
 		spaceName = name;
-		nextSpace = next;
 	}
 	
 	public void landOnAction(Player p) {
