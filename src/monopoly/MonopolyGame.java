@@ -16,7 +16,7 @@ public class MonopolyGame {
 	}
 	
 	public void addPlayer(String playerName){
-		players.add(new Player(playerName, getBoard().getSpace(0), display));
+		players.add(new Player(playerName, getBoard().getStartingSpace(), display));
 	}
 	
 	public void start(){

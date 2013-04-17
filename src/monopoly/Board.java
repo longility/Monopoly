@@ -27,11 +27,7 @@ public class Board{
 		lastSpace.setNextSpace(firstSpace);
 	}
 	
-	public AbstractSpace getSpace(int i){
-		return boardList.get(i);
-	}
-	
-	public int getIndex(AbstractSpace space){
-		return boardList.indexOf(space);
+	public AbstractSpace getStartingSpace() {
+		return boardList.get(0);
 	}
 }
