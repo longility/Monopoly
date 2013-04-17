@@ -1,17 +1,12 @@
 package monopoly;
 import java.util.*;
 
-public class Game {
-	ArrayList<Player> players; 
-	Board board; 
+public class MonopolyGame {
+	ArrayList<Player> players = new ArrayList<Player>(); 
+	Board board = new Board(); 
 	PlayerDisplay display = new PlayerDisplay();
 	
-	public Game(){
-		players = new ArrayList<Player>();
-		board = new Board();
-	}
-	
-	public void roundOfTurns(){
+	public void playRound(){
 		for(Player player : players)
 			player.takeTurn();
 	}
@@ -24,9 +19,9 @@ public class Game {
 		players.add(new Player(playerName, getBoard().getSpace(0), display));
 	}
 	
-	public void play(){
+	public void start(){
 		for(int i = 0; i < 10; i++){
-			roundOfTurns();
+			playRound();
 			System.out.println();
 		}
 	}
