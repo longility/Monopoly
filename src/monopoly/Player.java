@@ -3,13 +3,13 @@ package monopoly;
 import java.util.*;
 
 public class Player extends Observable{
-	private AbstractSpace currentSpace;
+	private Space currentSpace;
 	private int moneyAmt = 1500; 
 	private int currentRoll = 0;
 	private int netWorth = 1500;
 	private String name;
 	
-	public Player(String s, AbstractSpace startSpace, Observer o){
+	public Player(String s, Space startSpace, Observer o){
 		name = s; 
 		this.addObserver(o);
 		currentSpace = startSpace;
@@ -37,7 +37,7 @@ public class Player extends Observable{
 		}
 	}
 	
-	public AbstractSpace getCurrentSpace(){
+	public Space getCurrentSpace(){
 		return currentSpace;
 	}
 	

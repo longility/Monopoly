@@ -5,7 +5,7 @@ import java.util.*;
 public class PlayerDisplay implements Observer{
 	Observable observable;
 	private int roll; 
-	private AbstractSpace space;
+	private Space space;
 	private int moneyAmt;
 	private String name; 
 	

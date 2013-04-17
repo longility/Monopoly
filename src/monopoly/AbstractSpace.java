@@ -1,27 +1,23 @@
 package monopoly;
 
-abstract class AbstractSpace {
+abstract class AbstractSpace implements Space {
 	protected String spaceName;
-	protected AbstractSpace nextSpace;
+	protected Space nextSpace;
 	
-	public AbstractSpace(String name, AbstractSpace next){
+	public AbstractSpace(String name, Space next){
 		spaceName = name;
 		nextSpace = next;
 	}
-	
-	abstract void landOnAction(Player p);
-
-	abstract void passOverAction(Player p);
 	
 	public String getName(){
 		return spaceName;
 	}
 	
-	public void setNextSpace(AbstractSpace next){
+	public void setNextSpace(Space next){
 		nextSpace = next;
 	}
 	
-	public AbstractSpace getNextSpace(){
+	public Space getNextSpace(){
 		return nextSpace;
 	}
 }

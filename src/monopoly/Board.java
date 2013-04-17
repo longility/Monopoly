@@ -3,8 +3,8 @@ package monopoly;
 import java.util.*;
 
 public class Board{
-	private ArrayList<AbstractSpace> boardList = new ArrayList<AbstractSpace>();
-	AbstractSpace nextSpace;
+	private ArrayList<Space> boardList = new ArrayList<Space>();
+	Space nextSpace;
 	public Board(){
 		for(int i = 0; i < 40; i++){
 			if(i==0)
@@ -22,12 +22,12 @@ public class Board{
 				boardList.add(0, new NullSpace("Null Space",nextSpace));
 		}
 		//make list circular 
-		AbstractSpace lastSpace = boardList.get(boardList.size() - 1);
-		AbstractSpace firstSpace = boardList.get(0);
+		Space lastSpace = boardList.get(boardList.size() - 1);
+		Space firstSpace = boardList.get(0);
 		lastSpace.setNextSpace(firstSpace);
 	}
 	
-	public AbstractSpace getStartingSpace() {
+	public Space getStartingSpace() {
 		return boardList.get(0);
 	}
 }
