@@ -11,12 +11,8 @@ public class MonopolyGame {
 			player.takeTurn();
 	}
 	
-	public Board getBoard(){
-		return board;
-	}
-	
 	public void addPlayer(String playerName){
-		players.add(new Player(playerName, getBoard().getStartingSpace(), display));
+		players.add(new Player(playerName, board.getStartingSpace(), display));
 	}
 	
 	public void start(){
