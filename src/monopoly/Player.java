@@ -41,12 +41,17 @@ public class Player extends Observable{
 		return currentSpace;
 	}
 	
-	public void changeMoney(int m){
-		moneyAmt += m;
+	public void creditMoney(int money) {
+		moneyAmt += money;
 		changeNetWorth();
 	}
 	
-	public void changeNetWorth(){
+	public void debitMoney (int money) {
+		moneyAmt -= money;
+		changeNetWorth();
+	}
+	
+	private void changeNetWorth(){
 		netWorth = moneyAmt;
 	}
 	

@@ -13,8 +13,8 @@ public class IncomeTaxSpace extends AbstractSpace {
 		int percentage = (int)(p.getNetWorth() * percentTax);
 		System.out.println(percentage);
 		if(percentage < flatTax)
-			p.changeMoney(-percentage);
+			p.debitMoney(percentage);
 		else
-			p.changeMoney(-flatTax);
+			p.debitMoney(flatTax);
 	}
 }
