@@ -1,11 +1,10 @@
 package monopoly;
 
 public class LuxuryTaxSpace extends AbstractSpace{
-	private int taxAmount;
+	private int taxAmount = 75;
 
-	public LuxuryTaxSpace(String name, int tax){
-		super(name);
-		taxAmount = tax;
+	public LuxuryTaxSpace(){
+		super("Luxury Tax Space");
 	}
 	
 	@Override

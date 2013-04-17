@@ -1,11 +1,10 @@
 package monopoly;
 
 public class GoSpace extends AbstractSpace{
-	private int goAmount;
+	private int goAmount = 200;
 	
-	public GoSpace(String name, int goAmt){
-		super(name);
-		goAmount = goAmt; 
+	public GoSpace(){
+		super("Go Space"); 
 	}
 	
 	@Override

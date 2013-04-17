@@ -2,7 +2,7 @@ package monopoly;
 
 public class NullSpace extends AbstractSpace {
 	
-	public NullSpace(String name){
-		super(name);
+	public NullSpace(){
+		super("Null Space");
 	}
 }

@@ -1,13 +1,11 @@
 package monopoly;
 
 public class IncomeTaxSpace extends AbstractSpace {
- 	private int flatTax = 0;
- 	private double percentTax = 0;
+ 	private int flatTax = 200;
+ 	private double percentTax = 0.1;
  	
-	public IncomeTaxSpace(String name, int tax, double percent){
-		super(name); 
-		flatTax = tax;
-		percentTax = percent;
+	public IncomeTaxSpace(){
+		super("Income Tax Space"); 
 	}
 	
 	@Override

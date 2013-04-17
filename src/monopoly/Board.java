@@ -15,17 +15,17 @@ public class Board{
 	}
 	
 	private void createSpaces() {
-		spaces.add(new GoSpace("Go Space",200));
+		spaces.add(new GoSpace());
 		spaces.add(createNullSpace());
-		spaces.add(new IncomeTaxSpace("Income Tax Space",200,.1));
+		spaces.add(new IncomeTaxSpace());
 		for(int i=3; i<38; i++)
 			spaces.add(createNullSpace());
-		spaces.add(0, new LuxuryTaxSpace("Luxury Tax Space",75));
+		spaces.add(0, new LuxuryTaxSpace());
 		spaces.add(createNullSpace());
 	}
 	
 	private Space createNullSpace() {
-		return new NullSpace("Null Space");
+		return new NullSpace();
 	}
 	
 	private void linkSpaces() {
