@@ -2,7 +2,7 @@ package monopoly;
 
 import java.util.*;
 
-public class Player extends Observable{
+public class Player extends Observable implements SpacePlayerClient, GamePlayerClient, ReadOnlyPlayerClient {
 	private Space currentSpace;
 	private int moneyAmt = 1500; 
 	private int currentRoll = 0;
@@ -37,8 +37,8 @@ public class Player extends Observable{
 		}
 	}
 	
-	public Space getCurrentSpace(){
-		return currentSpace;
+	public String getCurrentSpaceName(){
+		return currentSpace.getName();
 	}
 	
 	public void creditMoney(int money) {

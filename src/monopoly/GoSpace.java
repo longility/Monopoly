@@ -8,12 +8,12 @@ public class GoSpace extends AbstractSpace{
 	}
 	
 	@Override
-	public void landOnAction(Player p){
+	public void landOnAction(SpacePlayerClient p){
 		p.creditMoney(goAmount);
 	}
 	
 	@Override
-	public void passOverAction(Player p){
+	public void passOverAction(SpacePlayerClient p){
 		p.creditMoney(goAmount);
 	}
 }

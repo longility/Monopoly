@@ -2,12 +2,12 @@ package monopoly;
 import java.util.*;
 
 public class MonopolyGame {
-	ArrayList<Player> players = new ArrayList<Player>(); 
+	ArrayList<GamePlayerClient> players = new ArrayList<GamePlayerClient>(); 
 	Board board = new Board(); 
 	PlayerDisplay display = new PlayerDisplay();
 	
 	public void playRound(){
-		for(Player player : players)
+		for(GamePlayerClient player : players)
 			player.takeTurn();
 	}
 	

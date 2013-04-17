@@ -8,11 +8,11 @@ abstract class AbstractSpace implements Space {
 		spaceName = name;
 	}
 	
-	public void landOnAction(Player p) {
+	public void landOnAction(SpacePlayerClient p) {
 		//Default implementation is to do nothing.
 	}
 
-	public void passOverAction(Player p) {
+	public void passOverAction(SpacePlayerClient p) {
 		//Default implementation is to do nothing.
 	}
 	
